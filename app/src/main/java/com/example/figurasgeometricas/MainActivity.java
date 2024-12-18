@@ -47,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    
+    private void obtenerServicioWeb(String url) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> Texto.setText("Resultado: " + response),
+                error -> Toast.makeText(getApplicationContext(), "Error: " + error.toString(), Toast.LENGTH_SHORT).show()
+        );
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
 
 }
