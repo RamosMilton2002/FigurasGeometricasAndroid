@@ -31,7 +31,7 @@ public class Cuadrado extends AppCompatActivity {
             return insets;
         });
 
-        txtl = findViewById(R.id.txtBase);
+        txtl = findViewById(R.id.txtBma);
         btnCua = findViewById(R.id.btnTria);
         Texto = findViewById(R.id.txtResul);
 
