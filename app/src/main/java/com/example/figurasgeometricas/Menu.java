@@ -28,7 +28,7 @@ public class Menu extends AppCompatActivity {
         btn3 = findViewById(R.id.btnCirculo);
 
         btn1.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, MainActivity.class);
+            Intent intent = new Intent(Menu.this, Cuadrado.class);
             startActivity(intent);
         });
 
@@ -38,7 +38,7 @@ public class Menu extends AppCompatActivity {
         });
 
         btn3.setOnClickListener(v -> {
-            Intent intent = new Intent(Menu.this, Circulo.class);
+            Intent intent = new Intent(Menu.this, Traprecio.class);
             startActivity(intent);
         });
     }

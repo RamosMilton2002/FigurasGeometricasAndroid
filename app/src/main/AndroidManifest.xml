@@ -17,7 +17,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".Circulo"
+            android:name=".Traprecio"
             android:exported="false" />
 
         <activity
@@ -34,7 +34,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Cuadrado"
             android:exported="true" />
     </application>
 </manifest>

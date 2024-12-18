@@ -15,7 +15,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class MainActivity extends AppCompatActivity {
+public class Cuadrado extends AppCompatActivity {
 
     TextView txtl ,Texto;
     Button btnCua;
