@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         txtl = findViewById(R.id.txtBase);
-        btnCua = findViewById(R.id.btnCua);
+        btnCua = findViewById(R.id.btnTria);
         Texto = findViewById(R.id.txtResul);
 
         btnCua.setOnClickListener(v -> {

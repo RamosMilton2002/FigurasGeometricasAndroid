@@ -1,6 +1,9 @@
 package com.example.figurasgeometricas;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,7 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 public class Triangulo extends AppCompatActivity {
+    TextView txtba ,txtal,Texto;
+    Button btnTri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +30,31 @@ public class Triangulo extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        txtba = findViewById(R.id.txtBase);
+        txtal = findViewById(R.id.txtaltu);
+        Texto = findViewById(R.id.txtResul);
+        btnTri = findViewById(R.id.btnTria);
+
+        btnTri.setOnClickListener(v -> {
+            String base = txtba.getText().toString().trim();
+            String altura = txtal.getText().toString().trim();
+
+            if (!base.isEmpty() && !altura.isEmpty()) {
+                obtenerServicioWeb("http://192.168.68.104:3001/triangulo/" + base + "/" + altura);
+            } else {
+                Toast.makeText(getApplicationContext(), "Por favor ingresa base y altura", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+    private void obtenerServicioWeb(String url) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> Texto.setText("Resultado: " + response),
+                error -> Toast.makeText(getApplicationContext(), "Error: " + error.toString(), Toast.LENGTH_SHORT).show()
+        );
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 }
