@@ -1,5 +1,6 @@
 package com.example.figurasgeometricas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import com.android.volley.toolbox.Volley;
 
 public class Triangulo extends AppCompatActivity {
     TextView txtba ,txtal,Texto;
-    Button btnTri;
+    Button btnTri,  btnre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,22 @@ public class Triangulo extends AppCompatActivity {
         txtal = findViewById(R.id.txtBmen);
         Texto = findViewById(R.id.txtResul);
         btnTri = findViewById(R.id.btnTria);
+        btnre = findViewById(R.id.btnre);
 
         btnTri.setOnClickListener(v -> {
             String base = txtba.getText().toString().trim();
             String altura = txtal.getText().toString().trim();
 
             if (!base.isEmpty() && !altura.isEmpty()) {
-                obtenerServicioWeb("http://192.168.68.104:3001/triangulo/" + base + "/" + altura);
+                obtenerServicioWeb("http://10.10.33.47:3001/triangulo/" + base + "/" + altura);
             } else {
                 Toast.makeText(getApplicationContext(), "Por favor ingresa base y altura", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnre.setOnClickListener(v -> {
+            Intent intent = new Intent(Triangulo.this, Menu.class);
+            startActivity(intent);
         });
 
     }

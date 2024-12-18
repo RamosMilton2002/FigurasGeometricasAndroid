@@ -1,5 +1,6 @@
 package com.example.figurasgeometricas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import com.android.volley.toolbox.Volley;
 public class Cuadrado extends AppCompatActivity {
 
     TextView txtl ,Texto;
-    Button btnCua;
+    Button btnCua, btnre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,14 +35,20 @@ public class Cuadrado extends AppCompatActivity {
         txtl = findViewById(R.id.txtBma);
         btnCua = findViewById(R.id.btnTria);
         Texto = findViewById(R.id.txtResul);
+        btnre = findViewById(R.id.btnRege);
 
         btnCua.setOnClickListener(v -> {
             String numero = txtl.getText().toString().trim();
             if (!numero.isEmpty()) {
-                obtenerServicioWeb("http://192.168.68.104:3001/cuadrado/" + numero);
+                obtenerServicioWeb("http://10.10.33.47:3001/cuadrado/" + numero);
             } else {
                 Toast.makeText(getApplicationContext(), "Por favor ingresa un número", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnre.setOnClickListener(v -> {
+            Intent intent = new Intent(Cuadrado.this, Menu.class);
+            startActivity(intent);
         });
 
     }

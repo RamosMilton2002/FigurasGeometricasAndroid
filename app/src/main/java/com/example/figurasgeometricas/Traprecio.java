@@ -1,5 +1,6 @@
 package com.example.figurasgeometricas;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,7 +19,7 @@ import com.android.volley.toolbox.Volley;
 
 public class Traprecio extends AppCompatActivity {
     TextView txtbam ,txtbme,txtal, Texto;
-    Button btnTra;
+    Button btnTra, btnre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +36,23 @@ public class Traprecio extends AppCompatActivity {
         txtal = findViewById(R.id.txtAl);
         btnTra = findViewById(R.id.btnTra);
         Texto = findViewById(R.id.txtResul);
+        btnre = findViewById(R.id.btnRe);
+
         btnTra.setOnClickListener(v -> {
             String baseMayor = txtbam.getText().toString().trim();
             String baseMenor = txtbme.getText().toString().trim();
             String altura = txtal.getText().toString().trim();
 
             if (!baseMayor.isEmpty() && !baseMenor.isEmpty() && !altura.isEmpty()) {
-                obtenerServicioWeb("http://192.168.68.104:3001/trapecio/" + baseMayor + "/" + baseMenor + "/" + altura);
+                obtenerServicioWeb("http://10.10.33.47:3001/trapecio/" + baseMayor + "/" + baseMenor + "/" + altura);
             } else {
                 Toast.makeText(getApplicationContext(), "Por favor llena todos los campos", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnre.setOnClickListener(v -> {
+            Intent intent = new Intent(Traprecio.this, Menu.class);
+            startActivity(intent);
         });
     }
 
@@ -57,4 +65,6 @@ public class Traprecio extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
+
 }
