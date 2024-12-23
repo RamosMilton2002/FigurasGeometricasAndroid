@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Menu extends AppCompatActivity {
-    Button btn1, btn2, btn3;
+    Button btn1, btn2, btn3, btn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class Menu extends AppCompatActivity {
         btn1 = findViewById(R.id.btnCuadrado);
         btn2 = findViewById(R.id.btnTriangulo);
         btn3 = findViewById(R.id.btnCirculo);
+        btn4 = findViewById(R.id.btnTrinomio);
 
         btn1.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, Cuadrado.class);
@@ -39,6 +40,11 @@ public class Menu extends AppCompatActivity {
 
         btn3.setOnClickListener(v -> {
             Intent intent = new Intent(Menu.this, Traprecio.class);
+            startActivity(intent);
+        });
+
+        btn4.setOnClickListener(v -> {
+            Intent intent = new Intent(Menu.this, TrinomioCuadradoPerfecto.class);
             startActivity(intent);
         });
     }
