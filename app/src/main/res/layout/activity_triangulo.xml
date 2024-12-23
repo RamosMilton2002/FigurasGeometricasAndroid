@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/txtBma"
+        android:id="@+id/txtP1"
         android:layout_width="224dp"
         android:layout_height="62dp"
         android:layout_marginTop="180dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtResul"
+        android:id="@+id/txtRes"
         android:layout_width="205dp"
         android:layout_height="94dp"
         android:layout_marginBottom="192dp"
@@ -97,7 +97,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtBmen"
+        android:id="@+id/txtP2"
         android:layout_width="218dp"
         android:layout_height="70dp"
         android:layout_marginBottom="348dp"

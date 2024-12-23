@@ -17,41 +17,40 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class Traprecio extends AppCompatActivity {
-    TextView txtbam ,txtbme,txtal, Texto;
-    Button btnTra, btnre;
+public class TrinomioCuadradoPerfecto extends AppCompatActivity {
+    TextView txt1, txt2, txt3 ,Texto;
+    Button btnTri, btnre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_circulo);
+        setContentView(R.layout.activity_trinomio_cuadrado_perfecto);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txtbam = findViewById(R.id.txtP1);
-        txtbme = findViewById(R.id.txtP2);
-        txtal = findViewById(R.id.txtP3);
-        btnTra = findViewById(R.id.btnTrin);
+        txt1 = findViewById(R.id.txtP1);
+        txt2 = findViewById(R.id.txtP2);
+        txt3 = findViewById(R.id.txtP3);
+        btnTri = findViewById(R.id.btnTrin);
         Texto = findViewById(R.id.txtRes);
         btnre = findViewById(R.id.btnRe);
 
-        btnTra.setOnClickListener(v -> {
-            String baseMayor = txtbam.getText().toString().trim();
-            String baseMenor = txtbme.getText().toString().trim();
-            String altura = txtal.getText().toString().trim();
+        btnTri.setOnClickListener(v -> {
+            String P1 = txt1.getText().toString().trim();
+            String P2 = txt2.getText().toString().trim();
+            String P3 = txt3.getText().toString().trim();
 
-            if (!baseMayor.isEmpty() && !baseMenor.isEmpty() && !altura.isEmpty()) {
-                obtenerServicioWeb("http://10.10.33.47:3001/trapecio/" + baseMayor + "/" + baseMenor + "/" + altura);
+            if (!P1.isEmpty() && !P2.isEmpty() && !P3.isEmpty()) {
+                obtenerServicioWeb("http://172.23.0.1:3001/trinomio/" + P1 + "/" + P2 + "/" + P3);
             } else {
                 Toast.makeText(getApplicationContext(), "Por favor llena todos los campos", Toast.LENGTH_SHORT).show();
             }
         });
-
         btnre.setOnClickListener(v -> {
-            Intent intent = new Intent(Traprecio.this, Menu.class);
+            Intent intent = new Intent(TrinomioCuadradoPerfecto.this, Menu.class);
             startActivity(intent);
         });
     }
@@ -65,6 +64,6 @@ public class Traprecio extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-
+    }
 
 }

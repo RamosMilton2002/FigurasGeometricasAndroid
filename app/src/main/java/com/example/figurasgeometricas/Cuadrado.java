@@ -32,9 +32,9 @@ public class Cuadrado extends AppCompatActivity {
             return insets;
         });
 
-        txtl = findViewById(R.id.txtBma);
+        txtl = findViewById(R.id.txtP1);
         btnCua = findViewById(R.id.btnTria);
-        Texto = findViewById(R.id.txtResul);
+        Texto = findViewById(R.id.txtRes);
         btnre = findViewById(R.id.btnRege);
 
         btnCua.setOnClickListener(v -> {

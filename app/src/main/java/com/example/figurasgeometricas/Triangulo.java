@@ -31,9 +31,9 @@ public class Triangulo extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txtba = findViewById(R.id.txtBma);
-        txtal = findViewById(R.id.txtBmen);
-        Texto = findViewById(R.id.txtResul);
+        txtba = findViewById(R.id.txtP1);
+        txtal = findViewById(R.id.txtP2);
+        Texto = findViewById(R.id.txtRes);
         btnTri = findViewById(R.id.btnTria);
         btnre = findViewById(R.id.btnre);
 
